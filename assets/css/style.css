@@ -61,8 +61,18 @@ body{
     flex-basis: 60%;
     text-align: center;
     justify-content: space-around;
-    padding: 0.5rem;
-}   
+    padding: 0.5em;
+}
+
+.menu__li{
+    border: 2px solid rgba(132, 187, 187, 0.288);
+    border-radius: 4px;
+    transition: .5 ease-in-out;
+}
+.menu__li:hover{
+    border: 2px solid var(--principal);
+}
+
 .menu__link{
     color: var(--principal);
     font-family: var(--font-primary);
@@ -92,6 +102,18 @@ body{
     text-transform: uppercase;
     text-align: center;
     padding: 1rem;
+    animation-duration: 5s;
+    animation-name: desplazar-titulo;
+}
+@keyframes desplazar-titulo{
+    from{
+        margin-left: -200%;
+        width: 200%;
+    }
+    to{
+        margin-left: 0.5%;
+        width: 100%;
+    }
 }
 .presentacion__parrafo{
     font-family: "Fredoka";
@@ -99,6 +121,18 @@ body{
     text-align: center;
     width: 65rem;
     padding: 2rem;
+    animation-duration: 5s;
+    animation-name: aparecer;
+}
+@keyframes aparecer{
+    from{
+        margin-left: -200%;
+        width: 200%;
+    }
+    to{
+        margin-left: 0.5%;
+        width: 100%;
+    }
 }
 
 /* FOOTER GLOBAL */
@@ -157,7 +191,17 @@ footer .contacto5{
     width: 20%;
     margin-top: 0px;
     margin-left: 25rem;
+    animation: rotacion-sublogo 8s infinite alternate cubic-bezier(0.075, 0.82, 0.165, 1);
 }
+@keyframes rotacion-sublogo{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
 header{
     background-color: rgba(0, 0, 255, 0.26);
     background-image: url(../img/Foto\ encabezado\ y\ pie.jpg);
@@ -171,7 +215,7 @@ header{
     background-image: url(../img/Fondo\ de\ presentación.png);
     background-repeat: no-repeat;
     background-size: cover;
-    min-width: 320px;
+    min-width: 32vh;
 }
 
 footer{
@@ -226,8 +270,8 @@ footer{
     display: grid;
     grid-template-columns: repeat(2 , auto);
     grid-template-rows: repeat(2 , auto);
-    grid-row-gap: 20px;
-    grid-column-gap: 40px;
+    grid-row-gap: 4vh;
+    grid-column-gap: 8vh;
     margin: 0 2em;
     grid-template-areas: 
     "propuesta__preguntaUno propuesta__preguntaDos"
@@ -271,7 +315,7 @@ footer{
     display: grid;
     grid-template-columns: repeat(4 , 1fr);
     grid-template-rows: repeat(2 , auto);
-    grid-gap: 10px;
+    grid-gap: 1vh;
     grid-template-areas: 
     "nosotros__titulo nosotros__titulo nosotros__titulo nosotros__titulo"
     "nosotros__parrafo nosotros__parrafo nosotros__parrafo nosotros__parrafo";
@@ -281,7 +325,7 @@ footer{
     display: grid;
     grid-template-columns: repeat(4 , 1fr);
     grid-template-rows: repeat(3 , auto);
-    grid-gap: 10px;
+    grid-gap: 1vh;
     grid-template-areas:                     
     "nosotros__subtitulo nosotros__subtitulo nosotros__subtitulo nosotros__subtitulo"
     "nosotros__img1 nosotros__img2 nosotros__img3 nosotros__img4"
@@ -361,7 +405,7 @@ footer{
 .formulario__titulo{
     color: black;
     font-family: "Fredoka";
-    font-size: 50px;
+    font-size: 5rem;
     display:inline-block;
     position: relative;
     left: 10px;
@@ -370,7 +414,7 @@ footer{
 .formulario__comentario{
     color: black;
     font-family: "Hubballi";
-    font-size: 27px;
+    font-size: 2.7rem;
     display:inline-block;
     position: relative;
     right: 130px;
@@ -385,14 +429,14 @@ footer{
 .formulario__preguntas--completar{
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 18px;
+    font-size: 1.8rem;
     background-color: rgba(81, 83, 126, 0.514);
     border: 5px solid rgb(24, 31, 88);
 }
 .formulario__preguntas--boton{
     color: rgb(233, 234, 240);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: bold;
     background-color: rgb(85, 86, 92);
     border: 5px solid rgb(85, 86, 92);
@@ -422,14 +466,26 @@ footer{
 .serv__img1{
     grid-area: serv__img1;
 }
+.serv__img1:hover{
+    transform: scale(1.2);
+}
 .serv__img2{
     grid-area: serv__img2;
+}
+.serv__img2:hover{
+    transform: scale(1.2);
 }
 .serv__img3{
     grid-area: serv__img3;
 }
+.serv__img3:hover{
+    transform: scale(1.2);
+}
 .serv__img4{
     grid-area: serv__img4;
+}
+.serv__img4:hover{
+    transform: scale(1.2);
 }
 /* SERVICIOS - CONFIGURACIÓN INDIVIDUAL */
 /* INGENIERIA AMBIENTAL */
@@ -473,49 +529,60 @@ footer{
     margin-top: 1em;
     background-color: rgba(7, 8, 68, 0.603);
     line-height: 1.5em;
+    width: 13em;
 }
 
 /* LABORATORIO AMBIENTAL */
-.ing_amb{
+.lab_amb{
     background-color: rgba(212, 209, 209, 0.678);
     color: white;
     font-family: var(--font-primary);
     font-size: 2rem;
     display: grid;
-    grid-template-columns: repeat(4, auto);
-    grid-template-rows: repeat(2, auto);
+    grid-template-columns: repeat(7, auto);
+    grid-template-rows: repeat(3, auto);
     grid-template-areas: 
-    "ing_amb__principal ing_amb__principal ing_amb__principal ing_amb__principal"
-    "ing_amb1 ing_amb2 ing_amb3 ing_amb4"
+    "lab_amb__principal lab_amb__principal lab_amb__principal lab_amb__principal lab_amb__principal lab_amb__principal lab_amb__principal"
+    ". lab_amb1 . lab_amb2 . lab_amb3 ."
+    ". lab_amb4 . lab_amb5 . lab_amb6 ."
     ;
     grid-column-gap: 8vh;
     text-align: center;
     justify-self: center;
 }
-.ing_amb__principal{
-    grid-area: ing_amb__principal;
+.lab_amb__principal{
+    grid-area: lab_amb__principal;
 }
-.ing_amb1{
-    grid-area: ing_amb1;
+.lab_amb1{
+    grid-area: lab_amb1;
     margin: 1em;
 }
-.ing_amb2{
-    grid-area: ing_amb2;
+.lab_amb2{
+    grid-area: lab_amb2;
     margin: 1em;
 }
-.ing_amb3{
-    grid-area: ing_amb3;
+.lab_amb3{
+    grid-area: lab_amb3;
     margin: 1em;
 }
-.ing_amb4{
-    grid-area: ing_amb4;
+.lab_amb4{
+    grid-area: lab_amb4;
     margin: 1em;
 }
-.ing_amb__parrafo{
+.lab_amb5{
+    grid-area: lab_amb5;
+    margin: 1em;
+}
+.lab_amb6{
+    grid-area: lab_amb6;
+    margin: 1em;
+}
+.lab_amb__parrafo{
     text-align: left;
     margin-top: 1em;
     background-color: rgba(7, 8, 68, 0.603);
     line-height: 1.5em;
+    width: 13em;
 }
 /* INGENIERIA LABORAL */
 .ing_lab{
@@ -560,7 +627,59 @@ footer{
     line-height: 1.5em;
 }
 /* MEDICIONES LABORALES */
+.lab_med{
+    background-color: rgba(212, 209, 209, 0.678);
+    color: white;
+    font-family: var(--font-primary);
+    font-size: 2rem;
+    display: grid;
+    grid-template-columns: repeat(7, auto);
+    grid-template-rows: repeat(3, auto);
+    grid-template-areas: 
+    "lab_med__principal lab_med__principal lab_med__principal lab_med__principal lab_med__principal lab_med__principal lab_med__principal"
+    ". lab_med1 . lab_med2 . lab_med3 ."
+    ". lab_med4 . lab_med5 . lab_med6 ."
+    ;
+    grid-column-gap: 8vh;
+    text-align: center;
+    justify-self: center;
+}
+.lab_med__principal{
+    grid-area: lab_med__principal;
+}
+.lab_med1{
+    grid-area: lab_med1;
+    margin: 1em;
+}
+.lab_med2{
+    grid-area: lab_med2;
+    margin: 1em;
+}
+.lab_med3{
+    grid-area: lab_med3;
+    margin: 1em;
+}
+.lab_med4{
+    grid-area: lab_med4;
+    margin: 1em;
+}
+.lab_med5{
+    grid-area: lab_med5;
+    margin: 1em;
+}
+.lab_med6{
+    grid-area: lab_med6;
+    margin: 1em;
+}
+.lab_med__parrafo{
+    text-align: left;
+    margin-top: 1em;
+    background-color: rgba(7, 8, 68, 0.603);
+    line-height: 1.5em;
+    width: 13em;
+}
 
+/* MEDIA */
 @media screen and (max-width: 768px){
     header{
         padding: 2em 0;
@@ -655,5 +774,41 @@ footer{
     }
     .ing_lab__parrafo{
         width: 13em;
+    }
+    .lab_amb{
+        background-color: rgba(212, 209, 209, 0.678);
+        color: white;
+        font-family: var(--font-primary);
+        font-size: 2rem;
+        display: grid;
+        grid-template-columns: repeat(5, auto);
+        grid-template-rows: repeat(4, auto);
+        grid-template-areas: 
+        "lab_amb__principal lab_amb__principal lab_amb__principal lab_amb__principal lab_amb__principal"
+        ". lab_amb1 . lab_amb2 ."
+        ". lab_amb3 . lab_amb4 ."
+        ". lab_amb5 . lab_amb6 ."
+        ;
+        grid-column-gap: 8vh;
+        text-align: center;
+        justify-self: center;
+    }
+    .lab_med{
+        background-color: rgba(212, 209, 209, 0.678);
+        color: white;
+        font-family: var(--font-primary);
+        font-size: 2rem;
+        display: grid;
+        grid-template-columns: repeat(5, auto);
+        grid-template-rows: repeat(4, auto);
+        grid-template-areas: 
+        "lab_med__principal lab_med__principal lab_med__principal lab_med__principal lab_med__principal"
+        ". lab_med1 . lab_med2 ."
+        ". lab_med3 . lab_med4 ."
+        ". lab_med5 . lab_med6 ."
+        ;
+        grid-column-gap: 8vh;
+        text-align: center;
+        justify-self: center;
     }
 }
